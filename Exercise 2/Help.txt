@@ -1,0 +1,7 @@
+1) To search for instance of OOP usage - Find name of concept(UPPERCASE) and use comments to navigate.
+
+2) To add new movie details - Update values in the class Movie.
+
+3) To change TicketID format - Update values in the Ticket Interface.
+
+4) To change Prices, discount amount or discount day - Update values in the class PrivacyPolicy.

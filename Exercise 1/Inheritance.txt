@@ -1,0 +1,66 @@
+
+Inheritance is a concept that allows us to create classes that share certain features and also have their own unique features. In simple terms, it eliminates redundant code for shared features.
+
+Deriving a new class from an existing class definition is called Inheritance.
+
+In the following example, the class Computer is a more general definition. This forms the PARENT/BASE class. The classes Laptop and Desktop are specific forms of Computer. Hence, these are called CHILD/SUB/DERIVED classes. The sub classes have access to non-private members of the base class and can define their own unique attributes or behavior.
+
+//Class Declaration
+public class Computer
+{
+	public String model; //Public member can be accessed by other classes
+
+	//Private Data Members/attributes
+	private int memory_gb;
+	private String operating_system;
+
+	//Public Constructor
+	public Computer()
+	{
+		this.model="X1Y2";
+		this.memory=32;
+		this.operating_system="Windows";
+	}
+	public String getModel()
+	{
+		return "Desktop : Model - "+model;
+	}
+}
+class Laptop extends Computer
+{
+	public Laptop()
+	{
+		super();   //call to constructor in parent
+	}
+	public String getModel()
+	{
+		return "Laptop : Model - "+model;	//model is the derived attribute
+	}
+}
+class Desktop extends Computer
+{
+	private String monitor_version; //unique feature of desktop
+	public Desktop()
+	{
+		super();   //call to constructor in parent		
+	}
+	public String getModel()
+	{
+		return "Desktop : Model - "+model;
+	}
+}
+
+Implementation:
+
+	Computer c = new Computer();
+	System.out.println(c.getModel());
+	Laptop l = new Laptop();
+	System.out.println(l.getModel());
+	Desktop d = new Desktop();
+	System.out.println(d.getModel());
+
+OUTPUT :
+	
+	X1Y1
+	Laptop : Model -  X1Y1
+	Desktop : Model - X1Y1

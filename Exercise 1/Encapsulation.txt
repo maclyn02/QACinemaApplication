@@ -1,0 +1,71 @@
+
+Encapsulation means putting together variables and methods as a single unit called a Class.
+
+An external method can access the public methods and properties i.e value of an attribute of an encapsulated.
+
+A fully encapsulated class is one in which all properties are private and can only be accessed by methods in the same class. This provides security against unauthorized attempts to modify data. Access to these private properties is provided via public getter() and setter() methods.
+
+Consider the following example.
+
+//Class Declaration
+public class Computer
+{
+	//Private Data Members/attributes
+	private String model;
+	private int memory_gb;
+	private String operating_system;
+
+	//Public Constructor
+	public Computer()
+	{
+		this.model="X1Y2";
+		this.memory=32;
+		this.operating_system="Windows";
+	}
+	
+	//Public Getter() methods
+		//Naming convention : getXxxx() where Xxxx is the name of the property
+	public String getModel()
+	{
+		return this.model;
+	}
+	
+	//Public setter() methods
+	public boolean setMemory_gb(int m)
+	{
+		//validation for property
+		if(m<0)
+		{
+			//memory cannot be negative
+			return false;
+		}
+		else
+		{
+			this.memory_gb=m;
+			return true;
+		}
+	}
+}
+
+If a programmer needs to access the "model" of a computer, he can call the getModel method of the class as shown below
+
+	Computer c = new Computer(); //Call to constructor
+	String model=c.getModel();
+	System.out.println(model);
+
+OUTPUT : 
+	X1Y1
+
+If a programmer needs to change the value for "memory" of a computer, he can call the setMemory_gb method of the class as shown below
+	
+	Computer c = new Computer(); //Call to constructor
+	boolean r=c.setMemory_gb(8);
+	boolean r1=c.setMemory_gb(-2);
+	//true indicates success and false indicates failure
+	System.out.print(r+"  "+r2+"  ");
+	System.out.print(c.getMemory_gb());
+
+OUTPUT : 	
+	true  false  8
+
+	

@@ -1,0 +1,64 @@
+
+Polymorphism means the ability to take multiple("poly") forms("morphos"). It is a feature that allows a word to be interpreted differently in different contexts. In java there are two categories of polymorphism : Static/Compile-time and Dynamic/Run-time.
+
+Compile-time polymorphism can be implemented using method overloading. Method overloading is a feature that allows a method to execute differently by altering its argument list. In simple terms, it allows us to have multiple functions with the same name but having different arguments, within the same class.
+
+For example:
+class MyClass 
+{
+	// method 1
+	public void display(String s)
+	{
+		System.out.println("Argument is a String- "+ s);
+	}
+	// method 2
+	public void display (int i)
+	{
+		System.out.println("Argument is an int- "+ i);
+	}
+	//method 3
+	public void display (String s, int i)
+	{
+		System.out.println("Mixed arguments- "+ s + "--" + i);
+	}
+}
+
+Implementation
+
+	MyClass m=new MyClass();
+	m.display(20);	//calls method 2
+	m.display("Twenty");	//calls method 1
+	m.display("twenty",20);	//calls method 3
+
+Run-time polymorphism or method overriding plays a key role in inheritance. A base class derives the methods of its parent, but in some cases it needs to override this default behavior. This creates two method definitions having the exact signature, one in the base class and one in the derived class. Since the signature is identical, the method call is resolved at run-time instead of compile-time based on the object that is used in the call.
+
+Consider the example below:
+
+class ParentClass 
+{
+	// parent method
+	public void display(int s)
+	{
+		System.out.println("This is the Parent class");
+	}
+}
+class ChildClass extends ParentClass
+{
+	//child method having same signature as parent
+	//NOTE: If this method does'nt exist, the parent's method will be called by default
+	public void display(int s)
+	{
+		System.out.println("This is the Child class");
+	}
+}
+
+Implementation:
+
+	ParentClass p=new ParentClass();
+	p.display();   //call to parent class method
+	ChildClass c=new ChildClass();
+	c.display();  //call to child class method
+
+OUTPUT : 	
+	This is the Parent class
+	This is the Child class	

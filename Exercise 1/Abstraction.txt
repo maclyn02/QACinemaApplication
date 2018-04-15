@@ -1,0 +1,81 @@
+
+Abstraction deals with hiding complex implementation details and providing a basic interface with which you can interact. There are two ways of implementing abstraction in java. One is by creating abstract class - a class that cannot be instantiated but can be inherited by other concrete classes. Second is via an interface that is implemented by a concrete class.
+
+In the following example, I have an abstract class called bake consisting of an abstract method setTime that varies for different objects, and a common method bake(). The classes Cake and Cookie inherit from the abstract class Bake and provide their implementation for the abstract method setTime(). Hence the abstract class hides the implementation of the setTime method.
+If a new class is created extending Bake, it will have to provide an implementation for the setTime method.
+
+public abstract class Bake 
+{
+	public abstract void setTime();
+	public void bake()
+	{
+		System.out.println("Baking...");
+	}
+}
+class Cake extends Bake
+{
+	@Override
+	public void setTime() 
+	{
+		System.out.println("Baking time for cake : 1hr");		
+	}	
+}
+class Cookie extends Bake
+{
+	@Override
+	public void setTime() 
+	{
+		System.out.println("Baking time for cookies : 20min");
+	}
+}
+
+Implementation :
+	
+	Cake cake=new Cake()
+	cake.setTime();
+	cake.bake();
+	Cookie cookie=new Cookie();
+	cookie.bake();
+
+OUTPUT :
+	
+	Baking time for cake : 1hr	
+	Baking...
+	Baking time for cookies : 20min
+	Baking...
+
+The above example can also be implemented using an interface instead of abstract class. The output would be the same as shown above. The key difference is that an interface can contain only abstract methods. Hence each concrete class that implements an interface needs to provide implementation for every method declared in the interface.
+
+//interfaces are abstract by default
+public interface class Bake 
+{
+	//interface methods are abstract by default
+	public void setTime();
+	public void bake();
+}
+class Cake implements Bake
+{
+	@Override
+	public void setTime() 
+	{
+		System.out.println("Baking time for cake : 1hr");		
+	}
+	@Override
+	public void bake() 
+	{
+		System.out.println("Baking...");		
+	}	
+}
+class Cookie implements Bake
+{
+	@Override
+	public void setTime() 
+	{
+		System.out.println("Baking time for cookies : 20min");
+	}
+	@Override
+	public void bake() 
+	{
+		System.out.println("Baking...");		
+	}
+}
